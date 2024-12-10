@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="styles.css">
     <title>Shop</title>
 </head>
-<body>
+<body class="body">
     <div class="container">
       <header class="header">
         <div class="header__main">
-          <h1 class="header__title">BOSSES-INFO</h1>
+          <h1 class="header__title">Bonny Shop</h1>
           <a href="/pages/main.html" class="close-icon">
             <img src="/images/close-icon.png" alt="close icon" />
           </a>
@@ -30,46 +30,60 @@
                 <span>5.300</span>
             </div>
         </div>
+        <div class="sections">
+          <button type="button" class="section" data-type="coin">Bonny Coin</button>
+          <button type="button" class="section" data-type="avatar">Avatar</button>
+        </div>
       </header>
       <main class="main">
         <div class="first-block">
         <div class="buy-coins">
             <img src="images/money-icon.png" alt="money-icon">
-            <span class="coins-amount">+ 1000 BC</span>
+            <span class="coins-amount">1 000 Bonny Coins</span>
             <button type="button">
                 <img src="/images/star-icon.svg" alt="star-icon">
-                <span>25</span>
+                <span>FREE</span>
             </button>
         </div>
         <div class="buy-coins">
             <img src="images/money-icon-2.png" alt="money-icon">
-            <span class="coins-amount">+ 5000 BC</span>
+            <span class="coins-amount">2 000 Bonny Coins</span>
             <button type="button">
                 <img src="/images/star-icon.svg" alt="star-icon">
                 <span>100</span>
             </button>
         </div>
-        <div class="buy-coins">
-            <img src="images/money-icon-3.png" alt="money-icon">
-            <span class="coins-amount">+ 25 000 BC</span>
-            <button type="button">
-                <img src="/images/star-icon.svg" alt="star-icon">
-                <span>400</span>
-            </button>
-        </div>
         </div>
         <div class="second-block">
         <div class="buy-coins">
-            <img src="images/money-icon-4.png" alt="money-icon">
-            <span class="coins-amount">+ 50 000 BC</span>
+            <img src="images/coin-250.png" alt="money-icon">
+            <span class="coins-amount">7 500 Bonny Coins</span>
             <button type="button">
                 <img src="/images/star-icon.svg" alt="star-icon">
-                <span>1400</span>
+                <span>250</span>
+            </button>
+        </div>
+        <div class="buy-coins">
+            <img src="images/money-icon-4.png" alt="money-icon">
+            <span class="coins-amount">20 000 Bonny Coins</span>
+            <button type="button">
+                <img src="/images/star-icon.svg" alt="star-icon">
+                <span>500</span>
+            </button>
+        </div>
+        </div>
+        <div class="third-block">
+        <div class="buy-coins">
+            <img src="images/money-icon-5.png" alt="money-icon">
+            <span class="coins-amount">50 000 Bonny Coins</span>
+            <button type="button">
+                <img src="/images/star-icon.svg" alt="star-icon">
+                <span>1000</span>
             </button>
         </div>
         <div class="buy-coins">
             <img src="images/money-icon-5.png" alt="money-icon">
-            <span class="coins-amount">+ 100 000 BC</span>
+            <span class="coins-amount">200 000 Bonny Coins</span>
             <button type="button">
                 <img src="/images/star-icon.svg" alt="star-icon">
                 <span>2 500</span>
@@ -78,5 +92,7 @@
         </div>
       </main>
     </div>
+
+    <script src="js/shop.js" type="module"></script>
 </body>
 </html>
