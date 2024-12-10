@@ -1,22 +1,40 @@
 .header:not(:last-child) {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
-.first-block {
-  display: flex;
-  gap: 20px;
+.balance:not(:last-child) {
+  margin-bottom: 30px;
+}
 
+.sections {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.section {
+  font-weight: inherit;
+  color: #d8d8d8;
+  padding-block: 5px;
+  padding-inline: 10px;
+  background-color: var(--dark-grey);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+:is(.first-block, .second-block) {
   &:not(:last-child) {
     margin-bottom: 25px;
   }
 }
 
-.second-block {
+:is(.first-block, .second-block, .third-block) {
   display: flex;
   gap: 10px;
 }
 
-.buy-coins {
+:is(.buy-coins, .buy-avatar) {
   min-height: 126px;
   width: 100%;
   display: flex;
@@ -50,6 +68,5 @@
 }
 
 .coins-amount {
-  font-size: 14px;
-  color: #d8d8d8;
+  font-size: 12px;
 }

@@ -12,7 +12,6 @@
 .container {
   max-width: 100%;
   margin-inline: auto;
-  padding: 30px 20px 10px 20px;
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
@@ -205,6 +204,7 @@
 
 .btn {
   color: #fff;
+  font-weight: inherit;
   padding: 5px;
   border-radius: 10px;
   background-color: var(--orange);
@@ -287,6 +287,7 @@
   transform: rotate(100deg);
   background-color: #888888;
   border-radius: 50%;
+  cursor: pointer;
 
   &::before {
     transform: rotate(-143deg);
@@ -333,6 +334,50 @@
   }
 }
 
+.btn-actions {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.btn-go-to-menu {
+  width: 100%;
+  padding-block: 7px;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+.btn-play-again {
+  text-align: center;
+  width: 100%;
+  padding-block: 7px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+.tab {
+  width: 40px;
+  height: 7px;
+  margin: 0 5px;
+  background-color: lightgray;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: var(--orange);
+}
+
 /* CSS Reset */
 
 *,
@@ -358,6 +403,7 @@ body {
 }
 
 /* Ensure body takes full height and uses a sans-serif font */
+
 body {
   text-rendering: optimizeLegibility;
   font-family: Poppins, sans-serif;
@@ -366,6 +412,8 @@ body {
   background-color: #a1a1a1;
   color: #fff;
   overscroll-behavior: contain;
+  padding-inline: 20px;
+  padding-block: 30px;
 }
 
 /* Remove list styles */
@@ -460,3 +508,4 @@ blockquote,
 figure {
   margin: 0;
 }
+

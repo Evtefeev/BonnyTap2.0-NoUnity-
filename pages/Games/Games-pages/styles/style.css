@@ -1,14 +1,14 @@
-.container_none {
+body {
+  margin: 0;
   padding: 0;
 }
 
 .main {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  background-color: #2e2720;
   min-height: 100vh;
   padding-bottom: 20px;
+  background-color: var(--darkest-grey);
 }
 
 .game-name {
@@ -20,7 +20,7 @@
   & h1 {
     width: 100%;
     position: absolute;
-    top: 215px;
+    top: 286px;
     font-size: 2.25rem;
     font-weight: inherit;
   }
@@ -31,14 +31,14 @@
 }
 
 .image-2048 {
-  background-image: url(/pages/Games/Games-pages/images/image-2048.svg);
+  background-image: url(/pages/Games/Games-pages/images/image-2048.png);
 }
 
-.image-bomb {
-  background-image: url(/pages/Games/Games-pages/images/Bomb-image.svg);
+.image-tonBird {
+  background-image: url(/pages/Games/Games-pages/images/image-TonBird.png);
 }
 
-:is(.image-2048, .image-bomb) {
+:is(.image-2048, .image-bomb, image-tonBird) {
   height: 320px;
   background-size: cover;
   background-position: center; 
@@ -47,7 +47,7 @@
 
 .close {
   position: absolute;
-  top: 15px;
+  top: 85px;
   right: 20px;
 }
 
@@ -72,6 +72,10 @@
   width: 238px;
   margin-inline: auto;
   background: linear-gradient(45deg, #ff7621, #ce2014);
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
 }
 
 .overlay {
@@ -189,12 +193,7 @@
   border: 1px solid white;
 }
 
-.btn-go-to-menu {
-  border-radius: 10px;
-  border: 1px solid white;
-}
-
-:is(.btn-invite, .btn-pay, .btn-go-to-menu, .btn-play-again) {
+:is(.btn-invite, .btn-pay) {
   width: 100%;
   padding-block: 7px;
 }
@@ -260,4 +259,12 @@
 
 .popup_height {
   height: 400px;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: flex;
 }

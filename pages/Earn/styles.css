@@ -40,14 +40,6 @@
   }
 }
 
-.btn-actions {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  text-align: center;
-  gap: 10px;
-}
-
 .btn-subscribe {
   padding-block: 10px;
   width: 100%;
@@ -65,4 +57,10 @@
 
 .list-item.joined {
   background-color: green;
+}
+
+.list-info {
+  & img {
+    max-width: 40px;
+  }
 }
