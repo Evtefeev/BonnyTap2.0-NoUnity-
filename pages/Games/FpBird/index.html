@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en"  id="body">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <style>
+        *{
+            image-rendering: pixelated;
+            overflow: hidden;
+        }
+        body {
+  position: fixed;
+  overflow-y: hidden;
+  z-index: -9999;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  margin: 0;
+}
+
+#bird{
+    height: 1.2vh;
+    width: 1.77vh;
+    background-size: 1.77vh 1.2vh;
+    left:2vw ;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    background-image: url(GameObjects/bird.gif);
+    background-position: 0vw;
+    image-rendering: pixelated;
+    scale: 4;
+    z-index: 200;
+}
+
+#birdhitbox{
+    height: 1.05vh;
+    width: 1.17vh;
+    background-size: 1.77vh 1.2vh;
+    left:2vw ;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    image-rendering: pixelated;
+    scale: 4;
+    z-index: 9999;
+
+}
+
+.bg {
+    background-image: url(GameObjects/background-day.png);
+    background-repeat: repeat-x;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-size: 50vh;
+    image-rendering: pixelated;
+
+    z-index: 99;
+}
+
+.bottom {
+    background-image: url(GameObjects/base.png);
+    background-repeat: repeat-x;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 83vh;
+    background-size: 70vh;
+    image-rendering: pixelated;
+    z-index: 99;
+}
+
+.BottomPipe{
+    background-image: url(GameObjects/pipe-green.png);
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 10vh;
+    background-size: 10vh;
+    position: absolute;
+    left: var(--x);
+    top: var(--top);
+    image-rendering: pixelated;
+    z-index: 99;
+}
+
+.TopPipe{
+    background-image: url(GameObjects/pipe-green.png);
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 10vh;
+    background-size: 10vh;
+    position: absolute;
+    left: var(--x);
+    top: var(--top);
+    rotate: 180deg;
+    transform: rotateY(180deg);
+    image-rendering: pixelated;
+    z-index: 99;
+}
+
+.globalpipes{
+    position: absolute;
+    left: 10000px;
+}
+
+.white{
+    position: absolute;
+    height: 1000vh;
+    left: 0;
+    top: 0;
+    width: 1000vw;
+    opacity: 0;
+    background-color: white;
+    animation: whiteadd 1 0.7s ease-in forwards;
+}
+
+.GivePoint{
+    background-repeat: no-repeat;
+    height: 120vh;
+    width: 1vh;
+    background-size: 10vh;
+    position: absolute;
+    left:var(--x);
+    top: var(--top);
+    transform: rotateY(180deg);
+    image-rendering: pixelated;
+    z-index: 99;
+}
+
+@keyframes whiteadd {
+from{opacity: 1;}
+to{
+    opacity: 0;
+}    
+}
+
+.points{
+    height: 10vh;
+    width: 20vh;
+    text-align: center;
+    position: absolute;
+    margin-left: 28%;
+    margin-top: 24%;
+    padding: 0;
+
+    background-position: 0vw;
+    image-rendering: pixelated;
+    
+    z-index: 9999;   
+}
+
+.Number{
+    position: absolute;
+    height: 100%;
+    width: 33%;
+    background-size: 101% 101%;
+}
+
+.H{
+    left: 0%;
+}
+
+.T{
+    left: 33%;
+}
+
+.O{
+    left:66%;
+}
+
+.Message{
+    background-image: url(UI/message.png);
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    left: 5%;
+    top: 7%;
+    transition: opacity 1s;
+    background-size: 90%;
+    image-rendering: pixelated;
+    z-index: 500;
+}
+
+.close {
+    right: -260px;
+    z-index: 2;
+}
+
+.popup_bottom {
+    z-index: 1000;
+    right: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.visibile {
+    display: flex;
+}
+    </style>
+    </a>
+    <audio src=""></audio>
+    
+    <div class="points">
+        <div id="H" class="H Number"></div>
+        <div id="T" class="T Number"></div>
+        <div id="O" class="O Number"></div>
+    </div>
+    <div class="white" style="display: none;" id="white">
+    </div>
+    
+    <div class="Message" id="Message">
+    </div>
+
+    <div id="bg2"  class="bg"></div>
+    <div id="birdhitbox"></div>
+    <div id="bird"></div>
+    <div class="pipes" id="globalpipes">
+    </div>
+
+    <div id="bg" class="bottom"></div>
+
+            <div>
+              <div id="modal-1" class="hidden popup popup_bottom h-full">
+                <p class="reward-text">Game is Over.</p>
+                <span>You Score: 14 Points</span>
+                <button id="modal-1-btn" class="btn btn-next btn-next_modify">NEXT</button>
+              </div>
+            </div>
+            <div>
+              <div id="modal-2" class="hidden popup popup_bottom h-full">
+                <p class="reward-text modal-2-reward-text">Your 7 Bananas Converted into Rewards</p>
+                <div class="reward">
+                  <span class="plus-sign">+</span>
+                  <img src="../../../images/coin.png" alt="coin icon">
+                  <span>5.300</span>
+                </div>
+                <div class="btn-actions">
+                  <button id="modal-2-btn-x2" class="hidden btn btn-claim-rewards">CLAIM X2</button>
+                  <button id="modal-2-btn-reward" class="btn btn-claim-rewards">CLAIM REWARDS</button>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div id="modal-3" class="hidden popup popup_bottom h-full">
+                <p class="reward-text modal-3-reward-text reward-text_margin">Congratulations!<br>You Already Collect 5 300</p>
+                <div class="btn-actions">
+                  <a href="../../../pages/Games/main.html" class="btn-go-to-menu">GO TO MENU</a>
+                  <a href="/pages/Games/FpBird/index.html" class="btn btn-play-again text-center">PLAY AGAIN</a>
+                </div>
+              </div>
+            </div>
+    <script src="script.js"></script>
+
+    <script>
+        let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
+        tg.requestFullscreen()
+        tg.disableVerticalSwipes()	
+    </script>
+</body>
+</html>
