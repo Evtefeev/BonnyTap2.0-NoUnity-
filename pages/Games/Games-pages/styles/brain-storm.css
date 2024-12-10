@@ -1,0 +1,7 @@
+.image-brain-storm {
+  background-image: url(/images/brain-storm.png);
+  height: 320px;
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
