@@ -1,4 +1,3 @@
-import { getUserInfo } from './API.js';
 import { loadData } from './loadData.js';
 
 (async () => {

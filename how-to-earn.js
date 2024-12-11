@@ -1,5 +1,9 @@
 import { loadData } from './JS/loadData.js';
-import { completeLearning } from './JS/API.js';
+import {userLogin, getUserInfo, completeLearning } from './JS/API.js';
+
+
+await userLogin();
+await getUserInfo();
 
 let currentSlide = 0;
 

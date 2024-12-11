@@ -1,77 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main page</title>
-    <link rel="stylesheet" href="/styles/common.css" />
-    <link rel="stylesheet" href="/styles/main.css">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <header class="header">
-        <button type="button" class="btn-burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <div class="user-progress">
-          <div class="user-info">
-            <img src="/images/user-icon.svg" alt="user-icon">
-            <span class="user-name">YOUR NAME</span>
-          </div>
-          <div class="progress">
-            <p class="progress-text">LVL 7/10</p>
-            <div class="progress-bar">
-              <img src="/images/progress-bar.svg" alt="progress-bar">
-            </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main page</title>
+  <link rel="stylesheet" href="/styles/common.css" />
+  <link rel="stylesheet" href="/styles/main.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+
+
+  <script>
+    // Add lazy load for all images
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = document.querySelectorAll("img:not([loading])"); // Select images without the 'loading' attribute
+      images.forEach(img => {
+        img.setAttribute("loading", "lazy");
+      });
+    });
+  </script>
+
+  <div class="container">
+    <header class="header">
+      <button type="button" class="btn-burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="user-progress">
+        <div class="user-info">
+          <img src="/images/user-icon.svg" alt="user-icon">
+          <span class="user-name">YOUR NAME</span>
+        </div>
+        <div class="progress">
+          <p class="progress-text">LVL 7/10</p>
+          <div class="progress-bar">
+            <img src="/images/progress-bar.svg" alt="progress-bar">
           </div>
         </div>
-        <button type="button" class="btn-settings">
-          <img src="/images/settings-icon.svg" alt="settings-icon">
-        </button>
-      </header>
-        <main class="main">
-          <div class="balance balance_margin">
-            <div class="balance-ton">
-                <img src="/images/ton-icon.svg" alt="ton-icon">
-                <span>0.03</span>
-            </div>
-            <div class="balance-star">
-                <img src="/images/star-icon.svg" alt="star-icon">
-                <span>200</span>
-            </div>
-            <a href="/pages/Shop/Shop.html" class="balance-coin">
-                <img src="/images/new-coin-icon.svg" alt="coin-icon">
-                <span>5.300</span>
-                <span class="plus">+</span>
-            </a>
-          </div>
-    <div class="slider-container">
-      <div class="slider-block">
-      <a href="/pages/Games/Games-pages/Game-2048.html" class="slider-slide" data-slide="0">
-        <img id="image" src="/images/2048.png" alt="Slide image">
-        <h2 id="title">2048 GAME</h2>
-      </a>
-      <a href="/pages/Games/Games-pages/Brain-storm-game.html" class="slider-slide" data-slide="1">
-        <img id="image" src="/images/brain-storm.png" alt="Slide Image">
-        <h2 id="title">BRAIN STORM GAME</h2>
-      </a>
-      <a href="/pages/Games/Games-pages/Bomb-game.html" class="slider-slide" data-slide="2">
-        <img id="image" src="/images/bomb-game.png" alt="Slide Image">
-        <h2 id="title">BOMB GAME</h2>
-      </a>
-      <a href="/pages/Games/Games-pages/FpBird-game.html" class="slider-slide" data-slide="3">
-        <img id="image" src="/images/tonBird.png" alt="Slide Image">
-        <h2 id="title">TON BIRD GAME</h2>
-      </a>
-      <a href="/pages/Spin/Spin-page.html" class="slider-slide" data-slide="4">
-        <img id="image" src="/images/luckyWheel.png" alt="Slide Image">
-        <h2 id="title">LUCKY WHEEL</h2>
-      </a>
-    </div>
-    </div>
+      </div>
+      <button type="button" class="btn-settings">
+        <img src="/images/settings-icon.svg" alt="settings-icon">
+      </button>
+    </header>
+    <main class="main">
+      <div class="balance balance_margin">
+        <div class="balance-ton">
+          <img src="/images/ton-icon.svg" alt="ton-icon">
+          <span>0.03</span>
+        </div>
+        <div class="balance-star">
+          <img src="/images/star-icon.svg" alt="star-icon">
+          <span>200</span>
+        </div>
+        <a href="/pages/Shop/Shop.html" class="balance-coin">
+          <img src="/images/new-coin-icon.svg" alt="coin-icon">
+          <span>balance</span>
+          <span class="plus">+</span>
+        </a>
+      </div>
+      <div class="slider-container">
+        <div class="slider-block">
+          <a href="/pages/Games/Games-pages/Game-2048.html" class="slider-slide" data-slide="0">
+            <img id="image" src="/images/2048.png" alt="Slide image">
+            <h2 id="title">2048 GAME</h2>
+          </a>
+          <a href="/pages/Games/Games-pages/Brain-storm-game.html" class="slider-slide" data-slide="1">
+            <img id="image" src="/images/brain-storm.png" alt="Slide Image">
+            <h2 id="title">BRAIN STORM GAME</h2>
+          </a>
+          <a href="/pages/Games/Games-pages/Bomb-game.html" class="slider-slide" data-slide="2">
+            <img id="image" src="/images/bomb-game.png" alt="Slide Image">
+            <h2 id="title">BOMB GAME</h2>
+          </a>
+          <a href="/pages/Games/Games-pages/FpBird-game.html" class="slider-slide" data-slide="3">
+            <img id="image" src="/images/tonBird.png" alt="Slide Image">
+            <h2 id="title">TON BIRD GAME</h2>
+          </a>
+          <a href="/pages/Spin/Spin-page.html" class="slider-slide" data-slide="4">
+            <img id="image" src="/images/luckyWheel.png" alt="Slide Image">
+            <h2 id="title">LUCKY WHEEL</h2>
+          </a>
+        </div>
+      </div>
       <div class="tabs" id="tabs">
       </div>
       <nav class="nav">
@@ -97,9 +111,10 @@
           <span>SHOP</span>
         </a>
       </nav>
-      </main>
-    </div>
+    </main>
+  </div>
 
-    <script src="/JS/main.js" type="module"></script>
-  </body>
+  <script src="/JS/main.js" type="module"></script>
+</body>
+
 </html>
