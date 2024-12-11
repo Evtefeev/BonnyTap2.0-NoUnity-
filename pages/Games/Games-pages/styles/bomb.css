@@ -20,11 +20,6 @@ body {
   position: absolute;
 }
 
-.image {
-  padding-top: 60px;
-  background-image: url(/pages/Games/Games-pages/images/Bomb-image.svg);
-}
-
 .bg-grayb {
   background-color: var(--grayb);
 }

@@ -413,7 +413,7 @@ body {
   color: #fff;
   overscroll-behavior: contain;
   padding-inline: 20px;
-  padding-block: 30px;
+  padding-block: 80px;
 }
 
 /* Remove list styles */
@@ -508,4 +508,3 @@ blockquote,
 figure {
   margin: 0;
 }
-
