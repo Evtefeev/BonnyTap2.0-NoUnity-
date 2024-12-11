@@ -1,5 +1,6 @@
 const API_URL = "https://miniapp-rho-virid.vercel.app/api";
-// const API_URL = "http://127.0.0.1:5500/api";
+// const API_URL = "http://192.168.0.110:5500/api";
+// const API_URL = "https://cow-major-fully.ngrok-free.app/api";
 
 
 // Initialize Telegram Web App
@@ -47,7 +48,7 @@ export async function userLogin() {
     if (data['preferred_lang']) {
         localStorage.setItem('selectedLang', data['preferred_lang']);
         if (!data['learning_completed'])
-            window.location.replace("/pages/How-to-earn/How-to-earn.html")
+            window.location.replace("/pages/How-to-earn/index.html")
         else
             window.location.replace("/pages/main.html")
 

@@ -61,3 +61,24 @@ document.querySelector("body > div > main > div.referral > a.copy")
       alert('An error occurred while copying the text.');
     }
   });
+
+
+// Function to send a link to a chat
+function sendLinkToChat(link) {
+  if (link) {
+    // Telegram URL scheme for opening links
+    const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(link)}`;
+
+    // Open the link
+    window.open(telegramUrl, '_blank');
+  } else {
+    console.error('No link provided!');
+  }
+}
+
+
+// Send ref code
+document.querySelector("body > div > main > div.referral > a.btn.referral__btn")
+  .addEventListener('click', async function () {
+    sendLinkToChat(refLink);
+  });
