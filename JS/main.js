@@ -1,9 +1,13 @@
+import { getUserInfo } from './API.js';
 import { loadData } from './loadData.js';
 
 (async () => {
   const selectedLang = localStorage.getItem('selectedLang') || 'en';
   const { mainPage } = await loadData(selectedLang);
+  const userInfo = JSON.parse(localStorage.getItem("user_info"));
 
+
+  // Set content
   document
     .querySelectorAll('.list-page .list-item__title')
     .forEach((title, index) => {
@@ -11,6 +15,25 @@ import { loadData } from './loadData.js';
         title.textContent = mainPage[index].namePage;
       }
     });
+
+
+  // Set usersame
+  document
+    .querySelector("body > div > header > div > div.user-info > span")
+    .innerHTML = userInfo.first_name;
+
+
+  // Set coins count
+  document
+    .querySelector("body > div > main > div.balance.balance_margin > a > span")
+    .innerHTML = userInfo.coins;
+
+
+
+
+  // Set avatar
+  document.querySelector("body > div > header > div > div.user-info > img")
+    .src = userInfo.avatar_url;
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
