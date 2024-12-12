@@ -1,8 +1,11 @@
-import { loadData } from './JS/loadData.js';
-import {userLogin, getUserInfo, completeLearning } from './JS/API.js';
+import { loadData } from '/JS/loadData.js';
+import { userLogin, getUserInfo, completeLearning } from '/JS/API.js';
 
 
-await userLogin();
+let completed = await userLogin();
+if (completed) {
+  window.location.href = '/pages/main.html';
+}
 await getUserInfo();
 
 let currentSlide = 0;

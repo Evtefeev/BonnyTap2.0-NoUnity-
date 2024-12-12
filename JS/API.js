@@ -45,9 +45,9 @@ export async function userLogin() {
     if (data['preferred_lang']) {
         localStorage.setItem('selectedLang', data['preferred_lang']);
         if (!data['learning_completed'])
-            window.location.replace("/pages/How-to-earn/index.html")
+            return false;
         else
-            window.location.replace("/pages/main.html")
+            return true;
 
     }
 }
