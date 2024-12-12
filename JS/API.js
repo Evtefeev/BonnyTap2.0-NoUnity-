@@ -9,14 +9,15 @@ const userInfo = tg.initDataUnsafe.user;
 console.log(userInfo);
 
 
-export function completeLearning() {
+export async function completeLearning() {
     const url = API_URL + '/user/complete_learning';
 
     const data = {
         token: localStorage.getItem("miniapp_token"),
     };
 
-    sendPost(url, data);
+    let res = await sendPost(url, data);
+    return res.json();
 }
 
 

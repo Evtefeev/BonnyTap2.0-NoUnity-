@@ -82,12 +82,12 @@ slider.addEventListener('touchend', (e) => {
   updateSlide();
 });
 
-nextButton.addEventListener('click', () => {
+nextButton.addEventListener('click', async function () {
   if (currentSlide < convertedData.length - 1) {
     currentSlide++;
     updateSlide();
   } else {
-    completeLearning();
+    await completeLearning();
     window.location.href = '/pages/main.html';
   }
 });
