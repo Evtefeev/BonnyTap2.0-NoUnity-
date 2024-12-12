@@ -116,3 +116,4 @@ function hideLoadingScreenAfterDelay() {
     [canvas, gameName, loaderBar].forEach((el) => (el.style.display = 'none'));
   }, 2500);
 }
+

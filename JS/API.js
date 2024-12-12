@@ -1,7 +1,7 @@
 import { API_URL } from "/JS/API_conf.js";
 
 // Initialize Telegram Web App
-const tg = window.Telegram.WebApp;
+export const tg = window.Telegram.WebApp;
 
 // Display user info
 const userInfo = tg.initDataUnsafe.user;
@@ -210,6 +210,18 @@ export async function saveGameScore(game, coins) {
         token: localStorage.getItem("miniapp_token"),
         game: game,
         coins: coins
+    };
+
+    let res = await sendPost(url, data);
+    return res.json();
+}
+
+
+export async function getInvoiceLink() {
+    const url = API_URL + '/create_invoice_link';
+
+    const data = {
+        token: localStorage.getItem("miniapp_token"),
     };
 
     let res = await sendPost(url, data);
