@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/common.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script type="module" src="games-page.js"></script>
     <title>Games</title>
 </head>
 <body class="body">
@@ -19,7 +21,7 @@
         <div class="header__top-bar top-bar">
           <div class="coins">
             <img src="/images/coin.png" alt="Coin Icon" />
-            <span>5.300</span>
+            <span id="coin_balance">balance</span>
           </div>
           <a class="btn" href="/pages/How-it-works/How-it-works.html"
             >HOW IT WORKS?</a

@@ -1,7 +1,4 @@
-const API_URL = "https://miniapp-rho-virid.vercel.app/api";
-// const API_URL = "http://192.168.0.110:5500/api";
-// const API_URL = "https://cow-major-fully.ngrok-free.app/api";
-
+import { API_URL } from "/JS/API_conf.js";
 
 // Initialize Telegram Web App
 const tg = window.Telegram.WebApp;
@@ -199,6 +196,20 @@ export async function getLeaderBoard() {
 
     const data = {
         token: localStorage.getItem("miniapp_token"),
+    };
+
+    let res = await sendPost(url, data);
+    return res.json();
+}
+
+
+export async function saveGameScore(game, coins) {
+    const url = API_URL + '/save_game_score';
+
+    const data = {
+        token: localStorage.getItem("miniapp_token"),
+        game: game,
+        coins: coins
     };
 
     let res = await sendPost(url, data);

@@ -1,3 +1,6 @@
+import { saveGameScore, getUserInfo } from '/JS/API.js';
+
+
 const gridSize = 4;
 let grid = [];
 let score = 0;
@@ -267,6 +270,15 @@ function clearAnimations() {
   gameContainer.classList.remove('rights');
 }
 
+
+// Сохранение баланса в бекенд
+async function claimCoins() {
+  const coins = document.getElementById('scores').textContent;
+  const res = await saveGameScore("Game-2048", coins);
+  console.log(res);
+  await getUserInfo();
+}
+
 // Попапы
 function showGameOverPopup() {
   const popupHTML1 = `
@@ -279,7 +291,8 @@ function showGameOverPopup() {
   document.querySelector('body').insertAdjacentHTML('beforeend', popupHTML1);
 
   const btnNext = document.querySelector('.btn-next');
-  btnNext.addEventListener('click', () => {
+  btnNext.addEventListener('click', async function () {
+    await claimCoins()
     document.querySelector('.popup_none').remove(); // Удалить текущий попап
     showPopup2();
   });

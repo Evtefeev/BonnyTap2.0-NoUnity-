@@ -1,0 +1,1 @@
+const API_URL = "https://miniapp-rho-virid.vercel.app/api";
