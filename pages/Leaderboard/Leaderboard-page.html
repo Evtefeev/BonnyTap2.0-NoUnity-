@@ -1,45 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles/common.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-  <title>Leaderboard Page</title>
-</head>
-
-<body>
-  <div class="container">
-    <header class="header">
-      <div class="header__main">
-        <h1 class="header__title">LEADERBOARD</h1>
-        <a href="/pages/main.html" class="close-icon">
-          <img src="/images/close-icon.png" alt="close icon" />
-        </a>
-      </div>
-      <div class="header__top-bar top-bar">
-        <h3 class="top-bar__title">YOUR POSITION 100</h3>
-        <div class="coins">
-          <img src="/images/coin.png" alt="Coin Icon" />
-          <span>5.300</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/common.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Leaderboard Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header__main">
+          <h1 class="header__title">LEADERBOARD</h1>
+          <a href="/pages/main.html" class="close-icon">
+            <img src="/images/close-icon.png" alt="close icon" />
+          </a>
         </div>
-      </div>
-      <div class="header__banner">
-        <img src="/images/banner.png" alt="Banner">
-      </div>
-    </header>
-    <main class="main">
-      <ul class="leaderboard">
+        <div class="header__top-bar top-bar">
+          <h3 class="top-bar__title">YOUR POSITION 100</h3>
+          <div class="coins">
+            <img src="/images/coin.png" alt="Coin Icon" />
+            <span>5.300</span>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <ul class="leaderboard">
+          <li class="list-item">
+            <div class="rank">
+              <img src="/images/Rank-1.png" alt="Rank-1">
+            </div>
+            <div class="user-info">
+              <span class="list-item__title">JAKE</span>
+              <div class="coins">
+                <img src="/images/coin.png" alt="Coin Icon" />
+                <span>150.300</span>
+              </div>
+            </div>
+            <span class="list-item__order">1</span>
+          </li>
+          <li class="list-item">
+            <div class="rank rank-2">
+              <img src="/images/Rank-2.png" alt="Rank-1">
+            </div>
+            <div class="user-info">
+              <span class="list-item__title">TOM</span>
+              <div class="coins">
+                <img src="/images/coin.png" alt="Coin Icon" />
+                <span>100.300</span>
+              </div>
+            </div>
+            <span class="list-item__order">2</span>
+          </li>
+          <li class="list-item">
+            <div class="rank rank-3">
+              <img src="/images/Rank-3.png" alt="Rank-1">
+            </div>
+            <div class="user-info">
+              <span class="list-item__title">LEO</span>
+              <div class="coins">
+                <img src="/images/coin.png" alt="Coin Icon" />
+                <span>90.300</span>
+              </div>
+            </div>
+            <span class="list-item__order">3</span>
+          </li>
+          <li class="list-item">
+            <div class="rank rank-4">
+              <img src="/images/Rank-4.png" alt="Rank-1">
+            </div>
+            <div class="user-info">
+              <span class="list-item__title">MAX</span>
+              <div class="coins">
+                <img src="/images/coin.png" alt="Coin Icon" />
+                <span>75.300</span>
+              </div>
+            </div>
+            <span class="list-item__order">4</span>
+          </li>
+          <li class="list-item">
+            <div class="rank rank-5">
+              <img src="/images/Rank-5.png" alt="Rank-5">
+            </div>
+            <div class="user-info">
+              <span class="list-item__title">BEN</span>
+              <div class="coins">
+                <img src="/images/coin.png" alt="Coin Icon" />
+                <span>65.300</span>
+              </div>
+            </div>
+            <span class="list-item__order">5</span>
+          </li>
+        </ul>
+      </main>
+      <nav class="nav">
+        <a href="/pages/Leaderboard/Leaderboard-page.html">
+          <img src="/images/tab-4.svg" alt="icon">
+          <span>LEADERS</span>
+        </a>
+        <a href="/pages/Invite/Invite-page.html">
+          <img src="/images/tab-5.svg" alt="icon">
+          <span>FRENS</span>
+        </a>
+        <a class="games" href="#">
+          <div></div>
+          <img src="/images/tab.svg" alt="icon">
+          <span>GAMES</span>
+        </a>
+        <a href="/pages/Earn/Earn-page.html">
+          <img src="/images/tab-2.svg" alt="icon">
+          <span>MISSIONS</span>
+        </a>
+        <a href="/pages/Shop/Shop.html">
+          <img src="/images/tab-3.svg" alt="icon">
+          <span>SHOP</span>
+        </a>
+      </nav>
+    </div>
 
-      </ul>
-    </main>
-  </div>
-
-  <script src="js/page.js" type="module"></script>
-</body>
-
+    <script src="js/page.js" type="module"></script>
+  </body>
 </html>
