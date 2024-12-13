@@ -26,7 +26,7 @@ body {
   padding-block: 25px;
 }
 
-.rank  {
+.rank {
   position: relative;
   width: 100px;
 
@@ -42,7 +42,7 @@ body {
   bottom: -46px;
 }
 
-.rank-5 img{
+.rank-5 img {
   bottom: -47px;
 }
 
@@ -50,4 +50,18 @@ body {
   img {
     bottom: -44px;
   }
+}
+
+
+
+.leaderboard_user_photo {
+  width: 47px;
+  position: absolute;
+  left: 25px;
+  top: -13px;
+  /* bottom: 20px; */
+  border-radius: 50%;
+  /* Makes the image circular */
+  object-fit: cover;
+  /* Ensures the image fits well inside */
 }
