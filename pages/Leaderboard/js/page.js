@@ -52,7 +52,14 @@ let leaderboard_li = `
 `
 
 for (let num = 1; num <= users.length; num++) {
-  let insertElement = leaderboard_li.replace("PLACE", num);
+  let insertElement = leaderboard_li;
+  if (num > 5) {
+    insertElement = insertElement.replace('<img src="/images/Rank-RANK.png" alt="Rank-RANK">', "")
+  }
+  if (users[num - 1].avatar_url == null) {
+    insertElement = insertElement.replace('<img src="PHOTO" alt="photo" class="leaderboard_user_photo" style="top: TOP;">', "")
+  }
+  insertElement = insertElement.replace("PLACE", num);
   insertElement = insertElement.replace("PHOTO", users[num - 1].avatar_url);
   insertElement = insertElement.replace("RANK", num);
   insertElement = insertElement.replace("NAME", users[num - 1].name);
