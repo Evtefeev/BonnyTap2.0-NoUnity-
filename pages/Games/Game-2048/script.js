@@ -1,6 +1,3 @@
-import { saveGameScore, getUserInfo } from '/JS/API.js';
-
-
 const gridSize = 4;
 let grid = [];
 let score = 0;
@@ -8,9 +5,9 @@ let bestscore = 0;
 let textscore, textbestscore;
 
 // Проверка и загрузка лучшего счета
-if (localStorage.getItem('best')) {
-  textbestscore = document.getElementById('bestscores');
-  bestscore = localStorage.getItem('best');
+if (localStorage.getItem("best")) {
+  textbestscore = document.getElementById("bestscores");
+  bestscore = localStorage.getItem("best");
   textbestscore.innerHTML = bestscore;
 }
 
@@ -21,18 +18,18 @@ function createEmptyGrid() {
 
 // Отображение сетки в DOM
 function renderGrid() {
-  const gameContainer = document.getElementById('game-container');
-  gameContainer.innerHTML = ''; // Очистить контейнер перед отрисовкой
+  const gameContainer = document.getElementById("game-container");
+  gameContainer.innerHTML = ""; // Очистить контейнер перед отрисовкой
 
   for (let row = 0; row < gridSize; row++) {
     for (let col = 0; col < gridSize; col++) {
       const value = grid[row][col];
-      const tile = document.createElement('div');
-      tile.className = 'tile';
+      const tile = document.createElement("div");
+      tile.className = "tile";
       tile.dataset.value = value;
       tile.textContent = value;
       if (value === 0) {
-        tile.classList.add('zero');
+        tile.classList.add("zero");
       }
 
       gameContainer.appendChild(tile);
@@ -82,13 +79,13 @@ function merge(row) {
 }
 
 function updateScore() {
-  textscore = document.getElementById('scores');
-  textbestscore = document.getElementById('bestscores');
+  textscore = document.getElementById("scores");
+  textbestscore = document.getElementById("bestscores");
 
   textscore.innerHTML = score;
   if (parseInt(textbestscore.innerHTML) <= parseInt(textscore.innerHTML)) {
     textbestscore.innerHTML = score;
-    localStorage.setItem('best', score);
+    localStorage.setItem("best", score);
   }
 }
 
@@ -181,30 +178,30 @@ function isGameOver() {
 function handleKeyPress(event) {
   if (
     !document.activeElement ||
-    !document.activeElement.closest('#game-container')
+    !document.activeElement.closest("#game-container")
   ) {
     return; // Игрок вне области игры
   }
 
   let moved = false;
-  const gameContainer = document.getElementById('game-container');
+  const gameContainer = document.getElementById("game-container");
   clearAnimations();
   switch (event.key) {
-    case 'ArrowLeft':
+    case "ArrowLeft":
       moved = moveLeft();
-      gameContainer.classList.add('lefts');
+      gameContainer.classList.add("lefts");
       break;
-    case 'ArrowRight':
+    case "ArrowRight":
       moved = moveRight();
-      gameContainer.classList.add('rights');
+      gameContainer.classList.add("rights");
       break;
-    case 'ArrowUp':
+    case "ArrowUp":
       moved = moveUp();
-      gameContainer.classList.add('tops');
+      gameContainer.classList.add("tops");
       break;
-    case 'ArrowDown':
+    case "ArrowDown":
       moved = moveDown();
-      gameContainer.classList.add('downs');
+      gameContainer.classList.add("downs");
       break;
   }
 
@@ -221,24 +218,24 @@ function handleKeyPress(event) {
 
 function handleSwipe(dir) {
   let moved = false;
-  const gameContainer = document.getElementById('game-container');
+  const gameContainer = document.getElementById("game-container");
   clearAnimations();
   switch (dir) {
-    case 'left':
+    case "left":
       moved = moveLeft();
-      gameContainer.classList.add('lefts');
+      gameContainer.classList.add("lefts");
       break;
-    case 'right':
+    case "right":
       moved = moveRight();
-      gameContainer.classList.add('rights');
+      gameContainer.classList.add("rights");
       break;
-    case 'up':
+    case "up":
       moved = moveUp();
-      gameContainer.classList.add('tops');
+      gameContainer.classList.add("tops");
       break;
-    case 'down':
+    case "down":
       moved = moveDown();
-      gameContainer.classList.add('downs');
+      gameContainer.classList.add("downs");
       break;
   }
 
@@ -263,20 +260,11 @@ function initGame() {
 
 // Очистка анимаций
 function clearAnimations() {
-  const gameContainer = document.getElementById('game-container');
-  gameContainer.classList.remove('tops');
-  gameContainer.classList.remove('downs');
-  gameContainer.classList.remove('lefts');
-  gameContainer.classList.remove('rights');
-}
-
-
-// Сохранение баланса в бекенд
-async function claimCoins() {
-  const coins = document.getElementById('scores').textContent;
-  const res = await saveGameScore("Game-2048", coins);
-  console.log(res);
-  await getUserInfo();
+  const gameContainer = document.getElementById("game-container");
+  gameContainer.classList.remove("tops");
+  gameContainer.classList.remove("downs");
+  gameContainer.classList.remove("lefts");
+  gameContainer.classList.remove("rights");
 }
 
 // Попапы
@@ -284,16 +272,15 @@ function showGameOverPopup() {
   const popupHTML1 = `
     <div class="popup popup_none">
       <p class="reward-text">Game is Over.</p>
-      <span>Your Score: ${document.getElementById('scores').textContent}</span>
+      <span>Your Score: ${document.getElementById("scores").textContent}</span>
       <a href="javascript:void(0);" class="btn btn-next btn-next_modify">NEXT</a>
     </div>`;
 
-  document.querySelector('body').insertAdjacentHTML('beforeend', popupHTML1);
+  document.querySelector("body").insertAdjacentHTML("beforeend", popupHTML1);
 
-  const btnNext = document.querySelector('.btn-next');
-  btnNext.addEventListener('click', async function () {
-    await claimCoins()
-    document.querySelector('.popup_none').remove(); // Удалить текущий попап
+  const btnNext = document.querySelector(".btn-next");
+  btnNext.addEventListener("click", () => {
+    document.querySelector(".popup_none").remove(); // Удалить текущий попап
     showPopup2();
   });
 }
@@ -305,7 +292,7 @@ function showPopup2() {
       <div class="reward">
         <span class="plus-sign">+</span>
         <img src="/images/coin.png" alt="coin icon">
-        <span>${document.getElementById('scores').textContent}</span>
+        <span>${document.getElementById("scores").textContent}</span>
       </div>
       <div class="btn-actions">
         <a href="javascript:void(0);" class="btn btn-claim-x2">CLAIM X2</a>
@@ -313,11 +300,11 @@ function showPopup2() {
       </div>
     </div>`;
 
-  document.querySelector('body').insertAdjacentHTML('beforeend', popupHTML2);
+  document.querySelector("body").insertAdjacentHTML("beforeend", popupHTML2);
 
-  const btnClaimRewards = document.querySelector('.btn-claim-rewards');
-  btnClaimRewards.addEventListener('click', () => {
-    document.querySelector('.popup_bottom').remove(); // Удалить текущий попап
+  const btnClaimRewards = document.querySelector(".btn-claim-rewards");
+  btnClaimRewards.addEventListener("click", () => {
+    document.querySelector(".popup_bottom").remove(); // Удалить текущий попап
     showPopup3();
   });
 }
@@ -327,23 +314,23 @@ function showPopup3() {
     <div class="popup popup_bottom">
       <p class="reward-text reward-text_margin">Your Points is Converted into Rewards</p>
       <div class="btn-actions">
-        <a href="/pages/Games/main.html" class="btn-go-to-menu">GO TO MENU</a>
+        <a href="/pages/main.html" class="btn-go-to-menu">GO TO MENU</a>
         <a href="/pages/Games/Game-2048/index.html" class="btn btn-play-again">PLAY AGAIN</a>
       </div>
     </div>`;
 
-  document.querySelector('body').insertAdjacentHTML('beforeend', popupHTML3);
+  document.querySelector("body").insertAdjacentHTML("beforeend", popupHTML3);
 
-  const btnPlayAgain = document.querySelector('.btn-play-again');
-  btnPlayAgain.addEventListener('click', () => {
-    document.querySelector('.popup_bottom').remove(); // Удалить текущий попап
+  const btnPlayAgain = document.querySelector(".btn-play-again");
+  btnPlayAgain.addEventListener("click", () => {
+    document.querySelector(".popup_bottom").remove(); // Удалить текущий попап
   });
 }
 
 // Слушаем события клавиш
-document.addEventListener('keydown', handleKeyPress);
-document.addEventListener('touchstart', handleTouchStart, false);
-document.addEventListener('touchmove', handleTouchMove, false);
+document.addEventListener("keydown", handleKeyPress);
+document.addEventListener("touchstart", handleTouchStart, false);
+document.addEventListener("touchmove", handleTouchMove, false);
 
 var xDown = null;
 var yDown = null;
@@ -358,7 +345,7 @@ function handleTouchStart(evt) {
 }
 
 function handleTouchMove(evt) {
-  const gameContainer = document.getElementById('game-container');
+  const gameContainer = document.getElementById("game-container");
   const rect = gameContainer.getBoundingClientRect();
   const isInside =
     evt.touches[0].clientX >= rect.left &&
@@ -379,15 +366,15 @@ function handleTouchMove(evt) {
 
   if (Math.abs(xDiff) > Math.abs(yDiff)) {
     if (xDiff > 0) {
-      handleSwipe('left');
+      handleSwipe("left");
     } else {
-      handleSwipe('right');
+      handleSwipe("right");
     }
   } else {
     if (yDiff > 0) {
-      handleSwipe('up');
+      handleSwipe("up");
     } else {
-      handleSwipe('down');
+      handleSwipe("down");
     }
   }
 
@@ -395,8 +382,8 @@ function handleTouchMove(evt) {
   yDown = null;
 }
 
-document.querySelector('button').addEventListener('click', () => {
-  window.location.pathname = '/pages/Games/Games-pages/Game-2048.html';
+document.querySelector("button").addEventListener("click", () => {
+  window.location.pathname = "/pages/Games/Games-pages/Game-2048.html";
 });
 
 // Запуск игры
