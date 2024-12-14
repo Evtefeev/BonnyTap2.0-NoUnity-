@@ -1,5 +1,5 @@
 import { data } from './data.js';
-import { getInvoiceLink, tg, getUserInfo } from '/JS/API.js';
+import { getInvoiceLink, tg, getUserInfo, checkInvoice } from '/JS/API.js';
 
 document.addEventListener('click', (event) => {
   const buttonType = event.target.dataset.type;
@@ -21,15 +21,28 @@ function updateBalance() {
 }
 updateBalance();
 
-document.querySelector("body > div > main > div.first-block > div:nth-child(2) > button")
-addEventListener('click', async function (event) {
-  const res = await getInvoiceLink();
-  const link = res.result;
-  if (link) {
-    window.open(link);
-    // await tg.openLink(link);
-    document.addEventListener("visibilitychange", () => { window.location = "/index.html" });
+Array.from(document.getElementsByClassName("buy-coins-button")).forEach((el) => {
+  el.addEventListener('click', async function (event) {
+    let product = this.parentElement.querySelector(".coins-amount").innerHTML;
+    const imageUrl = this.parentElement.querySelector("img").src
+    const res = await getInvoiceLink(product, imageUrl);
+    const link = res.result;
+    const invoiceId = res.id;
+    if (link) {
+      await tg.openLink(link);
 
+      while (true) {
+        let check = await checkInvoice(invoiceId);
+        if (check["message"] === "ok") {
+          await getUserInfo();
+          updateBalance()
+          alert("Purchase completed!!!")
+          break;
+        }
 
-  }
+        await new Promise(resolve => setTimeout(resolve, 1000)); // 1-second delay
+      }
+    }
+  });
 });
+

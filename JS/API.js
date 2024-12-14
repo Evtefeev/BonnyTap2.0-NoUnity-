@@ -218,11 +218,26 @@ export async function saveGameScore(game, coins) {
 }
 
 
-export async function getInvoiceLink() {
-    const url = API_URL + '/create_invoice_link';
+export async function getInvoiceLink(product, image_url) {
+    const url = API_URL + '/create_invoice';
 
     const data = {
         token: localStorage.getItem("miniapp_token"),
+        product: product,
+        image_url: image_url
+    };
+
+    let res = await sendPost(url, data);
+    return res.json();
+}
+
+
+export async function checkInvoice(id) {
+    const url = API_URL + '/check_invoice';
+
+    const data = {
+        token: localStorage.getItem("miniapp_token"),
+        invoice_id: id
     };
 
     let res = await sendPost(url, data);
