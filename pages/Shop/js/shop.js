@@ -29,7 +29,7 @@ Array.from(document.getElementsByClassName("buy-coins-button")).forEach((el) => 
     const link = res.result;
     const invoiceId = res.id;
     if (link) {
-      await tg.openLink(link);
+      await tg.openInvoice(link);
 
       while (true) {
         let check = await checkInvoice(invoiceId);
