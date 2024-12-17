@@ -12,10 +12,20 @@ const linkUrl = 'https://t.me/bonny_bot_test_channel';
 
 const selectedLang = localStorage.getItem('selectedLang');
 
-document
-  .querySelector("body > div > header > div.header__top-bar.top-bar > div > span")
-  .innerHTML = userInfo.coins;
 
+function updateBalance() {
+  document
+    .querySelector("body > div > header > div.header__top-bar.top-bar > div > span")
+    .innerHTML = userInfo.coins;
+}
+updateBalance();
+
+
+// Проверяем актуальную подписку и подсвечиваем зеленым
+const subscribed = await checkSubscription(linkUrl);
+if (subscribed == "subscribed") {
+  document.querySelector("body > div.container > main > ul > a:nth-child(1) > li").classList.add('joined');
+}
 
 const { earn } = await loadData(selectedLang);
 
@@ -134,12 +144,17 @@ document.addEventListener('click', async function (event) {
   const subscribed = await checkSubscription(linkUrl);
 
   if (subscribed == "subscribed") {
+    await getUserInfo();
+    updateBalance();
     const popup = createPopup(rewardContent);
 
     const btnClaimRewards = document.querySelector('.btn-claim-rewards');
     btnClaimRewards?.addEventListener('click', () => {
       const joined = localStorage.getItem('joined');
       const currentTarget = document.querySelector(`[data-name="${joined}"]`);
+
+
+
 
       if (currentTarget) currentTarget.classList.add('joined');
       closePopup(popup);

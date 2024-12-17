@@ -1,14 +1,17 @@
 import { loadData } from '../../../JS/loadData.js';
 import { getAnswers, getUserInfo } from '../../../JS/API.js';
 
+
+const userInfo = JSON.parse(localStorage.getItem("user_info"));
+updateBalance(userInfo.coins);
+
+
 document.addEventListener('DOMContentLoaded', async () => {
   const selectedLang = localStorage.getItem('selectedLang') || 'en';
   const themeOfQuestions = localStorage.getItem('themeOfQuestions') || '';
   const questionsData = await loadData(selectedLang);
   const serverAnswers = await getAnswers();
-  const userInfo = await getUserInfo();
 
-  updateBalance(userInfo.coins);
 
   if (!questionsData) {
     console.error(

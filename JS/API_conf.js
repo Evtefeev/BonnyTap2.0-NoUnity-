@@ -1,1 +1,1 @@
-export const API_URL = "https://miniapp-rho-virid.vercel.app/api";
+export const API_URL = "https://cow-major-fully.ngrok-free.app/api";

@@ -1,58 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/common.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <title>How-to-earn</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/common.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <title>How-to-earn</title>
 </head>
 <style>
   body {
     padding-top: 100px;
   }
 </style>
+
 <body>
-    <div class="container">
-      <div id="gameName" style="position: relative; z-index: 2; text-align: right;">
-        <p style="font-size: 30px; height: 35px;">BONNY TAP</p>
-        <p style="font-size: 12px;">BY BONNY GAMES</p>
-      </div>
-      <p id="loaderBar">
-        <img src="/images/loader-bar.png" alt="loader-bar">
-      </p>
-      <canvas style="background-color: #fd7621;" id="myCanvas">
-      </canvas>
-  <div class="slider-container">
-    <div class="slider-block">
-      <div class="slider-slide" data-slide="0">
-        <h2 id="title"></h2>
-        <img id="image" src="/images/how-to-earn-1.png" alt="Slide Image">
-      </div>
-      <div class="slider-slide" data-slide="1">
-        <h2 id="title"></h2>
-        <img id="image" src="/images/how-to-earn-2.png" alt="Slide Image">
-      </div>
-      <div class="slider-slide" data-slide="2">
-        <h2 id="title"></h2>
-        <img id="image" src="/images/how-to-earn-3.png" alt="Slide Image">
-      </div>
-      <div class="slider-slide" data-slide="3">
-        <h2 id="title"></h2>
-        <img id="image" src="/images/how-to-earn-4.png" alt="Slide Image">
-      </div>
-      <div class="slider-slide" data-slide="4">
-        <h2 id="title"></h2>
-        <img id="image" src="/images/how-to-earn-5.png" alt="Slide Image">
-      </div>
+  <div class="container">
+    <div id="gameName" style="position: relative; z-index: 2; text-align: right;">
+      <p style="font-size: 30px; height: 35px;">BONNY TAP</p>
+      <p style="font-size: 12px;">BY BONNY GAMES</p>
     </div>
-    <div class="tabs" id="tabs"></div>
-    <div class="buttons">
-      <a href="/pages/main.html" id="skip">SKIP</a>
-      <button type="button" id="next">NEXT</button>
-    </div>
+    <p id="loaderBar">
+      <img src="/images/loader-bar.png" alt="loader-bar">
+    </p>
+    <canvas style="background-color: #fd7621;" id="myCanvas">
+    </canvas>
+    <div class="slider-container">
+      <div class="slider-block">
+        <div class="slider-slide" data-slide="0">
+          <h2 id="title"></h2>
+          <img id="image" src="/images/how-to-earn-1.png" alt="Slide Image">
+        </div>
+        <div class="slider-slide" data-slide="1">
+          <h2 id="title"></h2>
+          <img id="image" src="/images/how-to-earn-2.png" alt="Slide Image">
+        </div>
+        <div class="slider-slide" data-slide="2">
+          <h2 id="title"></h2>
+          <img id="image" src="/images/how-to-earn-3.png" alt="Slide Image">
+        </div>
+        <div class="slider-slide" data-slide="3">
+          <h2 id="title"></h2>
+          <img id="image" src="/images/how-to-earn-4.png" alt="Slide Image">
+        </div>
+        <div class="slider-slide" data-slide="4">
+          <h2 id="title"></h2>
+          <img id="image" src="/images/how-to-earn-5.png" alt="Slide Image">
+        </div>
+      </div>
+      <div class="tabs" id="tabs"></div>
+      <div class="buttons">
+        <a href="/pages/main.html" id="skip">SKIP</a>
+        <button type="button" id="next">NEXT</button>
+      </div>
     </div>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -60,8 +62,11 @@
 
     <script>
       let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
-        tg.requestFullscreen()
-        tg.disableVerticalSwipes()
+      if (tg.platform != "weba") {
+        tg.requestFullscreen();
+        tg.disableVerticalSwipes();
+      }
     </script>
 </body>
+
 </html>

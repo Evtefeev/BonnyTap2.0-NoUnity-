@@ -41,8 +41,8 @@ const questionPage = `
     </div>
     <ul class="answers">
       ${question.answers
-        .map(
-          (answer, index) => `
+    .map(
+      (answer, index) => `
         <a href="#" class="link answer-link" data-answer-index="${index + 1}">
           <li class="list-item" data-question-id="question${index + 1}">
             <div class="list-info">
@@ -52,8 +52,8 @@ const questionPage = `
           </li>
         </a>
       `,
-        )
-        .join('')}
+    )
+    .join('')}
     </ul>
   </main>
 `;
@@ -69,20 +69,26 @@ container.addEventListener('click', (event) => {
   const key = userAnswer === question.correctAnswer ? 'correct' : 'incorrect';
   const popupDataEntry = data.popup[key];
   saveAnswer(LSThemeOfQuestions, LSNumberOfQuestion, userAnswer);
-
+  if (key === 'correct') {
+    // Update coins balance
+    let user_info = JSON.parse(localStorage.getItem("user_info"));
+    let coins = parseFloat(user_info.coins);
+    coins += 5.3;
+    user_info.coins = coins;
+    localStorage.setItem("user_info", JSON.stringify(user_info));
+  }
   const popupHTML = `
     <div class="popup">
-      ${
-        key === 'correct'
-          ? `
+      ${key === 'correct'
+      ? `
         <div class="reward">
           <span class="plus-sign">+</span>
           <img src="${popupDataEntry.coinImg}" alt="coin icon">
           <span>5.300</span>
         </div>
       `
-          : ''
-      }
+      : ''
+    }
       <p class="reward-text">${popupDataEntry.text}</p>
       <a href="/pages/Learn/Learn-page-questions.html" class="btn btn-claim-rewards">${popupDataEntry.btnText}</a>
     </div>
