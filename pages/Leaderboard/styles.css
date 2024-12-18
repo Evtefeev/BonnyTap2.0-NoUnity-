@@ -35,6 +35,7 @@ body {
     z-index: 2;
     bottom: -60px;
     max-width: 95px;
+    left: -25px;
   }
 }
 
@@ -57,11 +58,19 @@ body {
 .leaderboard_user_photo {
   width: 47px;
   position: absolute;
-  left: 25px;
+  left: 0px !important;
   top: -13px;
   /* bottom: 20px; */
   border-radius: 50%;
   /* Makes the image circular */
   object-fit: cover;
   /* Ensures the image fits well inside */
+}
+
+
+.truncate-text {
+  width: 100%;
+  white-space: nowrap;    /* Prevent text from wrapping */
+  overflow: hidden;       /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add "..." at the end */
 }

@@ -40,7 +40,7 @@ let leaderboard_li = `
     <img src="/images/Rank-RANK.png" alt="Rank-RANK">
     <img src="PHOTO" alt="photo" class="leaderboard_user_photo" style="top: TOP;">
   </div>
-    <div class="user-info">
+    <div class="user-info truncate-text">
       <span class="list-item__order">PLACE</span>
       <span class="list-item__title">NAME</span>
     </div>
