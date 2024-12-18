@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const themeOfQuestions = localStorage.getItem('themeOfQuestions') || '';
   const questionsData = await loadData(selectedLang);
   const serverAnswers = await getAnswers();
-
+  console.log(serverAnswers);
+  
 
   if (!questionsData) {
     console.error(
@@ -104,15 +105,9 @@ function handleQuestionClick(event) {
 
 function highlightAnsweredQuestions(serverAnswers, themeOfQuestions) {
   serverAnswers.forEach((answerEl) => {
-    const question = JSON.parse(localStorage.getItem('question'));
     const questionNumber = 'q' + answerEl.question_id;
     const userAnswer = answerEl.answer;
     const correct = answerEl.correct;
-
-    if (!question || !questionNumber || !userAnswer) {
-      console.warn('No answered question data found.');
-      return;
-    }
 
     const listItem = document.querySelector(`[data-id="${questionNumber}"]`);
     if (!listItem) {

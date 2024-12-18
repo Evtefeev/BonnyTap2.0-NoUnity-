@@ -1,101 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/common.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <title>Earn-page</title>
-</head>
-<body>
-    <div class="container">
-       <header class="header">
-        <div class="header__main">
-          <h1 class="header__title">MISSIONS</h1>
-          <a href="/pages/main.html" class="close-icon">
-            <img src="/images/close-icon.png" alt="close icon" />
-          </a>
-        </div>
-        <div class="header__top-bar top-bar">
-          <div class="coins">
-            <img src="/images/coin.png" alt="Coin Icon" />
-            <span>5.300</span>
-          </div>
-          <a class="btn" href="/pages/How-it-works/How-it-works.html"
-            >HOW IT WORKS?</a
-          >
-        </div>
-        <div class="header__banner">
-          <img src="/images/banner.png" alt="Banner">
-        </div>
-      </header>
-      <main class="main">
-        <ul class="network-list">
-          <a href="#" class="link">
-            <li class="list-item" data-name="Telegram">
-              <div class="list-info">
-                <img src="/images/tg-icon.png" alt="tg-icon">
-                <span class="list-item__title">JOIN OUR TG COMMUNITY</span>
-              </div>
-              <div class="coins">
-                <img src="/images/coin.png" alt="Coin Icon" />
-                <span>5.300</span>
-              </div>
-            </li>
-          </a>
-          <a href="#" class="link">
-            <li class="list-item" data-name="TgChat">
-              <div class="list-info">
-                <img src="/images/tg-icon.png" alt="tg-icon">
-                <span class="list-item__title">JOIN OUR TG CHAT</span>
-              </div>
-              <div class="coins">
-                <img src="/images/coin.png" alt="Coin Icon" />
-                <span>5.300</span>
-              </div>
-            </li>
-          </a>
-          <a href="#" class="link">
-            <li class="list-item" data-name="Discord">
-              <div class="list-info">
-                <img src="/images/discord-icon.png" alt="tg-icon">
-                <span class="list-item__title">JOIN OUR DISCORD</span>
-              </div>
-              <div class="coins">
-                <img src="/images/coin.png" alt="Coin Icon" />
-                <span>5.300</span>
-              </div>
-            </li>
-          </a>
-          <a href="#" class="link">
-            <li class="list-item" data-name="YouTube">
-              <div class="list-info">
-                <img src="/images/youtube-icon.png" alt="tg-icon">
-                <span class="list-item__title">JOIN OUR YOUTUBE</span>
-              </div>
-              <div class="coins">
-                <img src="/images/coin.png" alt="Coin Icon" />
-                <span>5.300</span>
-              </div>
-            </li>
-          </a>
-          <a href="#" class="link">
-            <li class="list-item" data-name="Tik-Tok">
-              <div class="list-info">
-                <img src="/images/tt-icon.png" alt="tg-icon">
-                <span class="list-item__title">JOIN OUR TIK-TOK</span>
-              </div>
-              <div class="coins">
-                <img src="/images/coin.png" alt="Coin Icon" />
-                <span>5.300</span>
-              </div>
-            </li>
-          </a>
-        </ul>
-      </main>
-    </div>
 
-    <script src="js/page-earn.js" type="module"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/common.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <title>Earn-page</title>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header__main">
+        <h1 class="header__title">MISSIONS</h1>
+        <a href="/pages/main.html" class="close-icon">
+          <img src="/images/close-icon.png" alt="close icon" />
+        </a>
+      </div>
+      <div class="header__top-bar top-bar">
+        <div class="coins">
+          <img src="/images/coin.png" alt="Coin Icon" />
+          <span id="user_balance">5.300</span>
+        </div>
+        <a class="btn" href="/pages/How-it-works/How-it-works.html">HOW IT WORKS?</a>
+      </div>
+      <div class="header__banner">
+        <img src="/images/banner.png" alt="Banner">
+      </div>
+    </header>
+    <main class="main">
+      <ul class="network-list">
+        <a href="#" class="link">
+          <li class="list-item" data-name="Telegram">
+            <div class="list-info">
+              <img src="/images/tg-icon.png" alt="tg-icon">
+              <span class="list-item__title">JOIN OUR TG COMMUNITY</span>
+            </div>
+            <div class="coins">
+              <img src="/images/coin.png" alt="Coin Icon" />
+              <span>5.300</span>
+            </div>
+          </li>
+        </a>
+        <a href="#" class="link">
+          <li class="list-item" data-name="TgChat">
+            <div class="list-info">
+              <img src="/images/tg-icon.png" alt="tg-icon">
+              <span class="list-item__title">JOIN OUR TG CHAT</span>
+            </div>
+            <div class="coins">
+              <img src="/images/coin.png" alt="Coin Icon" />
+              <span>5.300</span>
+            </div>
+          </li>
+        </a>
+        <a href="#" class="link">
+          <li class="list-item" data-name="Discord">
+            <div class="list-info">
+              <img src="/images/discord-icon.png" alt="tg-icon">
+              <span class="list-item__title">JOIN OUR DISCORD</span>
+            </div>
+            <div class="coins">
+              <img src="/images/coin.png" alt="Coin Icon" />
+              <span>5.300</span>
+            </div>
+          </li>
+        </a>
+        <a href="#" class="link">
+          <li class="list-item" data-name="YouTube">
+            <div class="list-info">
+              <img src="/images/youtube-icon.png" alt="tg-icon">
+              <span class="list-item__title">JOIN OUR YOUTUBE</span>
+            </div>
+            <div class="coins">
+              <img src="/images/coin.png" alt="Coin Icon" />
+              <span>5.300</span>
+            </div>
+          </li>
+        </a>
+        <a href="#" class="link">
+          <li class="list-item" data-name="Tik-Tok">
+            <div class="list-info">
+              <img src="/images/tt-icon.png" alt="tg-icon">
+              <span class="list-item__title">JOIN OUR TIK-TOK</span>
+            </div>
+            <div class="coins">
+              <img src="/images/coin.png" alt="Coin Icon" />
+              <span>5.300</span>
+            </div>
+          </li>
+        </a>
+      </ul>
+    </main>
+  </div>
+
+  <script src="js/page-earn.js" type="module"></script>
 </body>
+
 </html>

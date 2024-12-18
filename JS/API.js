@@ -192,6 +192,19 @@ export async function checkSubscription(channel_id) {
 }
 
 
+
+export async function checkSubscriptions(channels) {
+    const url = API_URL + '/check_subscriptions';
+
+    const data = {
+        token: localStorage.getItem("miniapp_token"),
+        channels: channels
+    };
+
+    let res = await sendPost(url, data);
+    return res.text();
+}
+
 export async function getLeaderBoard() {
     const url = API_URL + '/get_leader_board';
 
@@ -242,4 +255,18 @@ export async function checkInvoice(id) {
 
     let res = await sendPost(url, data);
     return res.json();
+}
+
+
+
+export function updateCoins(amount) {
+    let user_info = JSON.parse(localStorage.getItem("user_info"));
+    let coins = parseFloat(user_info.coins);
+    coins += amount;
+    coins = parseFloat(coins.toFixed(3));
+    user_info.coins = coins;
+    localStorage.setItem("user_info", JSON.stringify(user_info));
+    const el = document.querySelector('#user_balance');
+    if (el)
+        el.innerHTML = coins;
 }

@@ -1,5 +1,5 @@
 import { loadData } from '../../../JS/loadData.js';
-import { saveAnswer } from '../../../JS/API.js';
+import { saveAnswer, updateCoins } from '../../../JS/API.js';
 
 const LSThemeOfQuestions = localStorage.getItem('themeOfQuestions');
 const LSNumberOfQuestion = localStorage.getItem('questionNumber');
@@ -71,11 +71,7 @@ container.addEventListener('click', (event) => {
   saveAnswer(LSThemeOfQuestions, LSNumberOfQuestion, userAnswer);
   if (key === 'correct') {
     // Update coins balance
-    let user_info = JSON.parse(localStorage.getItem("user_info"));
-    let coins = parseFloat(user_info.coins);
-    coins += 5.3;
-    user_info.coins = coins;
-    localStorage.setItem("user_info", JSON.stringify(user_info));
+    updateCoins(5.3);
   }
   const popupHTML = `
     <div class="popup">

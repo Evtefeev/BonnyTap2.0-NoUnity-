@@ -1,6 +1,6 @@
 import { getUserInfo, getRefferalLink, getRefferals } from '../../../JS/API.js';
 
-const userInfo = await getUserInfo();
+const userInfo = JSON.parse(localStorage.getItem("user_info"))
 const refLink = await getRefferalLink();
 const refferals = await getRefferals();
 // console.log(refferals);
@@ -45,21 +45,12 @@ for (let num = 1; num <= refferals.length; num++) {
 
 document.querySelector("body > div > main > div.referral > a.copy")
   .addEventListener('click', async function () {
-    try {
-      // Check clipboard write permission
-      const permission = await navigator.permissions.query({ name: 'clipboard-write' });
+  
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(refLink);
 
-      if (permission.state === 'granted' || permission.state === 'prompt') {
-        const text = refLink;
-        await navigator.clipboard.writeText(text);
-        alert('Text copied to clipboard!');
-      } else {
-        alert('Clipboard permission denied. Please grant permission to copy text.');
-      }
-    } catch (err) {
-      console.error('Failed to copy text: ', err);
-      alert('An error occurred while copying the text.');
-    }
+    // Alert the copied text
+    alert("Text copied");
   });
 
 

@@ -1,1 +1,1 @@
-export const API_URL = "https://miniapp-rho-virid.vercel.app/api";
+export const API_URL = "https://sixvbcaihd.loclx.io/api";

@@ -1,3 +1,6 @@
+import { saveGameScore, updateCoins } from "/JS/API.js";
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const menuBtn = document.getElementById('menu-btn');
   const cardImages = Array.from(document.getElementsByClassName('card-img'));
@@ -84,7 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
     rewardText.innerHTML = 'You lost this time.<br>Play again to win';
   };
 
-  const openModal = () => {
+  const openModal = async function () {
+    await saveGameScore("Bomb game", 5300);
+    updateCoins(5.3);
     rewardText.HTML = 'Congratulations!<br>You Already Collect 5 300';
     modalContainer.classList.remove('hidden');
     modal1.classList.remove('hidden');
